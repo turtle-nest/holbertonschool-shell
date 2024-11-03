@@ -1,2 +1,5 @@
 #!/bin/bash
-find . -type d -empty -print0 -o -type f -empty -print0 | xargs -0 -I {} sh -c 'echo $(basename "{}")'
+find . -type f -iname "*.gif" | while IFS= read -r file; do
+    name="${file%.gif}"
+    echo "$name"
+done | sort -f
