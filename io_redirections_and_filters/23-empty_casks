@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type d -empty -print0 -o -type f -empty -print0 | xargs -0 -I {} sh -c 'echo $(basename "{}")'
+find . -type f -empty -o -type d -empty -print | awk -F/ '{print $NF}'
